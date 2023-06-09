@@ -1,12 +1,12 @@
 import 'package:dio/dio.dart';
 import 'dart:async';
-import 'package:flutter/rendering.dart';
+import 'package:flutter/foundation.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class LoginService {
-  Future<dynamic> login() async {
+  static Future<dynamic> login(String email, String password) async {
     Dio dio = Dio();
-    var formData = FormData.fromMap({"email": "", "password": ""});
+    var formData = FormData.fromMap({"email": email, "password": password});
     dio.interceptors.add(PrettyDioLogger(
         requestHeader: true,
         requestBody: true,
