@@ -31,11 +31,7 @@ class _LoginPageState extends State<LoginPage> {
         autovalidateMode: AutovalidateMode.onUserInteraction,
         child: ListView(
           children: [
-            SizedBox(
-                height: 100,
-                width: 100,
-                child: Image.asset('assets/images/user.png')),
-            const SizedBox(height: 10.0),
+            Image.asset('assets/images/l.webp',height: 250,),
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(

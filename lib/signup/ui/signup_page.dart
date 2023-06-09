@@ -25,6 +25,7 @@ class _SignupPageState extends State<SignupPage> {
       ),
       body: ListView(
         children: [
+          Image.asset('assets/images/l.webp',height: 200,),
           const SizedBox(height: 10.0),
           Padding(
             padding: const EdgeInsets.all(8.0),

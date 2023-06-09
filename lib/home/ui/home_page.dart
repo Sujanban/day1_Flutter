@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -8,6 +9,13 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(viewportFraction: 0.8);
+  }
   List category = [
     {"icon": "assets/images/headset.png", "name": "Headset"},
     {"icon": "assets/images/keyboard.png", "name": "Keyboard"},
@@ -35,6 +43,7 @@ class _HomePageState extends State<HomePage> {
             child: Text("Category",
                 style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15.0)),
           ),
+
           SizedBox(
             height: 100,
             child: ListView.separated(
@@ -58,6 +67,7 @@ class _HomePageState extends State<HomePage> {
                   );
                 }),
           ),
+
           Padding(
             padding: const EdgeInsets.fromLTRB(5, 20, 5, 20),
             child: SizedBox(
