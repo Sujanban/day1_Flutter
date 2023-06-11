@@ -38,6 +38,41 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: ListView(
         children: [
+          CarouselSlider(
+            items: [
+              Container(
+                margin: EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                    image: DecorationImage(
+                    // image: NetworkImage("https://cdn.pixabay.com/photo/2017/01/08/13/58/cube-1963036__340.jpg"),
+                      image: AssetImage("assets/images/banner.jpg"),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.all(8.0),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(10.0),
+                  image: DecorationImage(
+                    image: AssetImage("assets/images/banner2.webp"),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
+            ],
+            options: CarouselOptions(
+              height: 150.0,
+              enlargeCenterPage: true,
+              autoPlay: true,
+              aspectRatio: 16 / 9,
+              autoPlayCurve: Curves.fastOutSlowIn,
+              enableInfiniteScroll: true,
+              autoPlayAnimationDuration: Duration(milliseconds: 200),
+              viewportFraction: 1,
+            ),
+          ),
           const Padding(
             padding: EdgeInsets.all(15.0),
             child: Text("Category",
@@ -68,15 +103,7 @@ class _HomePageState extends State<HomePage> {
                 }),
           ),
 
-          Padding(
-            padding: const EdgeInsets.fromLTRB(5, 20, 5, 20),
-            child: SizedBox(
-              height: 100,
-              width: double.infinity,
-              child: Image.asset("assets/images/banner2.webp",
-                  height: 150, fit: BoxFit.cover),
-            ),
-          ),
+
           SizedBox(
             child: ListView.separated(
                 shrinkWrap: true,
