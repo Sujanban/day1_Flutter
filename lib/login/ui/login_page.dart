@@ -1,6 +1,8 @@
 import 'package:day2/home_nav/ui/home_nav.dart';
+import 'package:day2/login/controller/login_controller.dart';
 import 'package:day2/signup/ui/signup_page.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -10,9 +12,12 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  LoginController loginController = Get.put(LoginController());
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   late AutovalidateMode autovalidateMode;
   late bool passwordVisible = false;
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 
   @override
   void initState() {
@@ -35,6 +40,7 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
+                controller: emailController,
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return "This field is required";
@@ -61,6 +67,7 @@ class _LoginPageState extends State<LoginPage> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: TextFormField(
+                controller: passwordController,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return "This field is required";
@@ -94,12 +101,7 @@ class _LoginPageState extends State<LoginPage> {
             const SizedBox(height: 10.0),
             ElevatedButton(
                 onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (BuildContext context) {
-                      return HomeNav();
-                    }));
-                  }
+                 validateInput();
                 },
                 child: const Text("Login")),
             Row(
@@ -125,6 +127,9 @@ class _LoginPageState extends State<LoginPage> {
   void validateInput() {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
+      loginController.loginUser(email: emailController.text,password: passwordController.text);
+      // Navigator.push(context,
+      // MaterialPageRoute(builder: (BuildContext context){return HomeNav();}));
     } else {
       setState(() {
         autovalidateMode = AutovalidateMode.onUserInteraction;
