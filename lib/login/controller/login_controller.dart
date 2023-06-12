@@ -1,4 +1,5 @@
 import 'package:day2/home/ui/home_page.dart';
+import 'package:day2/home_nav/ui/home_nav.dart';
 import 'package:day2/login/service/login_service.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:get/get.dart';
@@ -15,7 +16,8 @@ class LoginController extends GetxController {
         await EasyLoading.dismiss();
         if(success==true){
           await EasyLoading.showSuccess("login success");
-          Get.off(()=>HomePage());
+          // Get.off(()=>HomePage());
+          Get.off(()=>HomeNav());
         }
         else{
           await EasyLoading.showError("Invalid email or Password");

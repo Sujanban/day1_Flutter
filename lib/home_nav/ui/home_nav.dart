@@ -1,4 +1,6 @@
 import 'package:day2/home/ui/home_page.dart';
+import 'package:day2/location/ui/location_flutter.dart';
+import 'package:day2/profile/ui/profile_flutter.dart';
 import 'package:flutter/material.dart';
 
 class HomeNav extends StatefulWidget {
@@ -20,13 +22,9 @@ class _HomeNavState extends State<HomeNav> {
           child: Text("Camera"),
         );
       case 2:
-        return const Center(
-          child: Text("Api"),
-        );
+        return LocationPage();
       case 3:
-        return const Center(
-          child: Text("Profile Page"),
-        );
+        return ProfilePage();
     }
   }
 
@@ -47,7 +45,7 @@ class _HomeNavState extends State<HomeNav> {
         items: [
           const BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           const BottomNavigationBarItem(icon: Icon(Icons.camera), label: "Camera"),
-          const BottomNavigationBarItem(icon: Icon(Icons.api), label: "Api"),
+          const BottomNavigationBarItem(icon: Icon(Icons.map), label: "Location"),
           const BottomNavigationBarItem(icon: Icon(Icons.people), label: "Profile"),
         ],
       ),
