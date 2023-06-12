@@ -41,6 +41,7 @@ dependencies:
   flutter_easyloading: ^3.0.5
   location: ^4.4.0
   nepali_utils: ^3.0.3
+  image_picker: ^0.8.8
 
 dev_dependencies:
   flutter_test:

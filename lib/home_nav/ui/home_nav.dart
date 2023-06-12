@@ -1,4 +1,5 @@
 import 'package:day2/home/ui/home_page.dart';
+import 'package:day2/image/ui/imagepicker_flutter.dart';
 import 'package:day2/location/ui/location_flutter.dart';
 import 'package:day2/profile/ui/profile_flutter.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +19,7 @@ class _HomeNavState extends State<HomeNav> {
       case 0:
         return HomePage();
       case 1:
-        return const Center(
-          child: Text("Camera"),
-        );
+        return CameraPage();
       case 2:
         return LocationPage();
       case 3:
